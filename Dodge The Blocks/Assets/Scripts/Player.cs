@@ -34,4 +34,9 @@ public class Player : MonoBehaviour
 
 		_rb.MovePosition(newPosition);
 	}
+
+	void OnCollisionEnter2D()
+	{
+		
+	}
 }
