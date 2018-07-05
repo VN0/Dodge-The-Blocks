@@ -11,7 +11,6 @@ public class Player : MonoBehaviour
 {
 	public float speed = 15f;
 	public float mapWidth = 5f;
-
 	private Rigidbody2D _rb;
 
 	void Start()
@@ -35,8 +34,11 @@ public class Player : MonoBehaviour
 		_rb.MovePosition(newPosition);
 	}
 
-	void OnCollisionEnter2D()
+	void OnCollisionEnter2D(Collision2D col)
 	{
-		
+		if(col.collider.tag == "Block")
+		{
+			GameManager.instance.EndGame(); //using the singleton pattern
+		}
 	}
 }
