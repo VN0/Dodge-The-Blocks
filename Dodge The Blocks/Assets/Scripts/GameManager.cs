@@ -27,6 +27,14 @@ public class GameManager : MonoBehaviour
 
 	public void EndGame()
 	{
+		StartCoroutine(RestartLevel());
+	}
+
+	IEnumerator RestartLevel()
+	{
+		//before 1 sec
+		yield return new WaitForSeconds(1f);
+		//after 1 sec
 		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 	}
 }
