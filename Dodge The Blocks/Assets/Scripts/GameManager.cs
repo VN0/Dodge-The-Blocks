@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
 {
 	public static GameManager instance; //implementing a singleton pattern
 
+	public float slowDownFactor = 10f;
+
 	void Awake()
 	{
 		if(instance == null)
@@ -33,8 +35,15 @@ public class GameManager : MonoBehaviour
 	IEnumerator RestartLevel()
 	{
 		//before 1 sec
-		yield return new WaitForSeconds(1f);
+		Time.timeScale = 1 / slowDownFactor;
+		Time.fixedDeltaTime = Time.fixedDeltaTime/slowDownFactor;
+
+		yield return new WaitForSeconds(1f / slowDownFactor);
+
 		//after 1 sec
+		Time.timeScale = 1f;
+		Time.fixedDeltaTime = Time.fixedDeltaTime * slowDownFactor;
+
 		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 	}
 }
