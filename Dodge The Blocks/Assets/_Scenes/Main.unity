@@ -315,6 +315,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63bbc1a4193ebea4fa588134ad96e8c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slowDownFactor: 10
 --- !u!4 &1229561872
 Transform:
   m_ObjectHideFlags: 0
@@ -581,6 +582,8 @@ MonoBehaviour:
   - {fileID: 1440803796}
   - {fileID: 1842903580}
   blockPrefab: {fileID: 1375060056597830, guid: b313219d12ab11e4aacdfbc2f211c4b1,
+    type: 2}
+  scorePointPrefab: {fileID: 1581221809259650, guid: e6854a84d7292ae41a9ce19ba419ed0f,
     type: 2}
   _timeToSpawn: 2
   _timeBetweenWaves: 1

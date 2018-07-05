@@ -12,6 +12,7 @@ public class BlockSpawner : MonoBehaviour
 	public Transform[] spawnPoints;
 
 	public GameObject blockPrefab;
+	public GameObject scorePointPrefab;
 
 	[SerializeField]
 	private float _timeToSpawn = 2f;
@@ -36,6 +37,10 @@ public class BlockSpawner : MonoBehaviour
 			if(i != randomIndex)
 			{
 				Instantiate(blockPrefab, spawnPoints[i].position, Quaternion.identity);
+			}
+			else
+			{
+				Instantiate(scorePointPrefab, spawnPoints[i].position, Quaternion.identity);
 			}
 		}
 	}
