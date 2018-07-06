@@ -1,0 +1,54 @@
+﻿/*
+Copyright (c) Shubham Saudolla
+https://github.com/shubham-saudolla
+*/
+
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.Audio;
+using System;
+
+public class AudioManager : MonoBehaviour
+{
+	public Sound[] sounds;
+	public static AudioManager instance;
+
+	void Awake()
+	{
+		DontDestroyOnLoad(gameObject); //the theme won't be cut off on level reload
+
+		if(instance == null)
+		{
+			instance = this;
+		}
+		else
+		{
+			Destroy(gameObject);
+		}
+	}
+
+	void Start()
+	{
+		foreach(Sound s in sounds)
+		{
+			s.source = gameObject.AddComponent<AudioSource>();
+			s.source.clip = s.clip;
+			s.source.volume = s.volume;
+			s.source.loop = s.loop;
+		}
+
+		// Play("theme");
+	}
+
+	public void Play(string name)
+	{
+		Sound s = Array.Find(sounds, sounds => sounds.name == name);
+		if(s == null)
+		{
+			Debug.LogWarning("Sound " + name + "not found.");
+			return;
+		}
+		s.source.Play();
+	}
+}
