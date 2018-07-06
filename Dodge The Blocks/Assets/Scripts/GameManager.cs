@@ -61,6 +61,7 @@ public class GameManager : MonoBehaviour
 	public void EndGame()
 	{
 		gameOver = true;
+		AudioManager.instance.Play("GameOver");
 		StartCoroutine(SlowDownAndStop());
 	}
 
