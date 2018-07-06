@@ -373,6 +373,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slowDownFactor: 10
+  slowMotionTime: 1.66
+  gameOver: 0
+  freezeBlocks: 0
 --- !u!4 &1229561872
 Transform:
   m_ObjectHideFlags: 0

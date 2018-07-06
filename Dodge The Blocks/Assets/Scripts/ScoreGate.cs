@@ -13,7 +13,10 @@ public class ScoreGate : MonoBehaviour
 	{
 		if(col.GetComponent<Collider2D>().tag == "ScorePoint")
 		{
-			Debug.Log("Scored a point");
+			if(GameManager.instance.gameOver == false)
+			{
+				AudioManager.instance.Play("ScorePoint");
+			}
 		}
 	}
 }

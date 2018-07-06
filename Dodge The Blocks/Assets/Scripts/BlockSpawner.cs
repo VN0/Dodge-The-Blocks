@@ -21,10 +21,13 @@ public class BlockSpawner : MonoBehaviour
 	
 	void Update () 
 	{
-		if(Time.time >= _timeToSpawn)
+		if(GameManager.instance.gameOver == false)
 		{
-			SpawnBlocks();
-			_timeToSpawn = Time.time + _timeBetweenWaves;
+			if(Time.time >= _timeToSpawn)
+			{
+				SpawnBlocks();
+				_timeToSpawn = Time.time + _timeBetweenWaves;
+			}
 		}
 	}
 
