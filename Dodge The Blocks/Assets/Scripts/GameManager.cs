@@ -27,17 +27,20 @@ public class GameManager : MonoBehaviour
 		{
 			Destroy(gameObject);
 		}
-		//GameManager.instance.function();
 	}
 
 	void Start()
 	{
 		freezeBlocks = false;
+		gameOver = false;
 	}
 
-	void FixedUpdate()
+	void Update()
 	{
-		ReloadLevel();
+		if(freezeBlocks)
+		{
+			ReloadLevel();
+		}
 	}
 
 	public void EndGame()
@@ -57,17 +60,14 @@ public class GameManager : MonoBehaviour
 		//after 1 sec
 		Time.timeScale = 1f;
 		Time.fixedDeltaTime = Time.fixedDeltaTime * slowDownFactor;
-		freezeBlocks = true;
+		freezeBlocks = true; //the blocks are frozen only AFTER the slow mmotion effect completes execution
 	}
 
 	void ReloadLevel()
 	{
-		if(freezeBlocks)
+		if(Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
 		{
-			if(Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
-			{
-				SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-			}
+			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 		}
 	}
 }
