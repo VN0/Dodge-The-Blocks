@@ -99,3 +99,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gravityScaleFactor: 20
+  rb: {fileID: 0}

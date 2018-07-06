@@ -213,6 +213,7 @@ GameObject:
   - component: {fileID: 592096362}
   - component: {fileID: 592096361}
   - component: {fileID: 592096363}
+  - component: {fileID: 592096364}
   m_Layer: 5
   m_Name: GameOverText
   m_TagString: Untagged
@@ -263,7 +264,7 @@ MonoBehaviour:
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
-    m_MaxSize: 114
+    m_MaxSize: 300
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -291,6 +292,24 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 1.24, y: -3.55}
   m_UseGraphicAlpha: 1
+--- !u!95 &592096364
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 592096359}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bd814b94b0bd1e745a9c769397d2ab1c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &694519714
 GameObject:
   m_ObjectHideFlags: 0
@@ -550,6 +569,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63bbc1a4193ebea4fa588134ad96e8c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameOverText: {fileID: 592096359}
+  restartText: {fileID: 914994551}
+  scoreText: {fileID: 2009760840}
   slowDownFactor: 10
   slowMotionTime: 1.66
   gameOver: 0
@@ -833,7 +855,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4969463390397372, guid: 44a6fabc735a6b048bd58eeeb6653480, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -1.36
+      value: -0.7
       objectReference: {fileID: 0}
     - target: {fileID: 4969463390397372, guid: 44a6fabc735a6b048bd58eeeb6653480, type: 2}
       propertyPath: m_LocalPosition.z

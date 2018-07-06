@@ -11,10 +11,11 @@ public class ScoreGate : MonoBehaviour
 {
 	public void OnTriggerEnter2D(Collider2D col)
 	{
-		if(col.GetComponent<Collider2D>().tag == "ScorePoint")
+		if(col.gameObject.tag == "ScorePoint")
 		{
 			if(GameManager.instance.gameOver == false)
 			{
+				GameManager.instance.playerScored();
 				AudioManager.instance.Play("ScorePoint");
 			}
 		}
