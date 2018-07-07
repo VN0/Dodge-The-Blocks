@@ -24,6 +24,7 @@ public class Block : MonoBehaviour
 		{
 			Destroy(gameObject);
 		}
+		
 		if(GameManager.instance.gameOver == true)
 		{
 			if(GameManager.instance.freezeBlocks == true)

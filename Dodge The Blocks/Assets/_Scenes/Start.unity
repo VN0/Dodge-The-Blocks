@@ -333,7 +333,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd67d1ec698af3947939c0b4b0e8d737, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds: []
+  sounds:
+  - name: ScorePoint
+    clip: {fileID: 8300000, guid: 5c15574c27b0e0b45ab10659ae1d269c, type: 3}
+    loop: 0
+    volume: 0.8
+    source: {fileID: 0}
+  - name: GameOver
+    clip: {fileID: 8300000, guid: e971b1b001d0d8b4b893805a1d4ea397, type: 3}
+    loop: 0
+    volume: 0.85
+    source: {fileID: 0}
 --- !u!4 &694519716
 Transform:
   m_ObjectHideFlags: 0

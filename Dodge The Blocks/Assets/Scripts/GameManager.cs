@@ -96,6 +96,7 @@ public class GameManager : MonoBehaviour
 		//before 1 sec
 		Time.timeScale = 1 / slowDownFactor;
 		Time.fixedDeltaTime = Time.fixedDeltaTime/slowDownFactor;
+		AudioManager.instance.Play("GameOver");
 
 		yield return new WaitForSeconds(slowMotionTime / slowDownFactor);
 
