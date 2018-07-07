@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
 	public static GameManager instance; //implementing a singleton pattern
 	public GameObject gameOverText;
 	public GameObject restartText;
+	public GameObject topScoreText;
 	public Text scoreText;
 	private int _score;
 
@@ -41,6 +42,9 @@ public class GameManager : MonoBehaviour
 		gameOverText.SetActive(false);
 		restartText.SetActive(false);
 		_score = 0;
+
+		Text dummytext = topScoreText.GetComponent<Text>();
+		dummytext.text = PlayerPrefs.GetInt("TopScore", 0).ToString();
 	}
 
 	void Update()
@@ -53,9 +57,31 @@ public class GameManager : MonoBehaviour
 
 	public void playerScored()
 	{
+		if(gameOver)
+		{
+			return;
+		}
+
 		_score++;
 
-		scoreText.text = "Score: " + _score;
+		scoreText.text = "Score: " + _score.ToString();
+	}
+
+	public void topScore()
+	{
+		if(_score > PlayerPrefs.GetInt("TopScore", 0))
+		{
+			PlayerPrefs.SetInt("TopScore", _score);
+			Text dumText = topScoreText.GetComponent<Text>();
+			dumText.text = "Top Score: " + _score.ToString();
+			topScoreText.SetActive(true);
+		}
+		else
+		{
+			Text dumText = topScoreText.GetComponent<Text>();
+			dumText.text = "Top Score: " + PlayerPrefs.GetInt("TopScore").ToString();
+			topScoreText.SetActive(true);
+		}
 	}
 
 	public void EndGame()
@@ -79,6 +105,7 @@ public class GameManager : MonoBehaviour
 		freezeBlocks = true; //the blocks are frozen only AFTER the slow motion effect completes execution
 		gameOverText.SetActive(true);
 		restartText.SetActive(true);
+		topScore();
 	}
 
 	void ReloadLevel()

@@ -14,7 +14,8 @@ public class SplashScreen : MonoBehaviour
 	{
 		if(Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
 		{
-			SceneManager.LoadScene(0);
+			Debug.Log("Got input");
+			SceneManager.LoadScene(1);
 		}
 	}
 }
